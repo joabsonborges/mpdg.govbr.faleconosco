@@ -17,6 +17,7 @@ install:
 script:
 - bin/code-analysis
 - bin/test
+- pip install flake8 
 
 after_success:
 - bin/createcoverage
