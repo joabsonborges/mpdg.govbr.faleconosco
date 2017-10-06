@@ -17,7 +17,7 @@ install:
 script:
 - bin/code-analysis
 - bin/test
-- pip install flake8 
+- coverage run --source=mpdg.govbr.faleconosco bootstrap.py test
 
 after_success:
 - bin/createcoverage
