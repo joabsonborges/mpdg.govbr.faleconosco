@@ -6,4 +6,4 @@ omit =
     buildout-cache/eggs/*
     eggs/*
     parts/*
-include = /src/mpdg/govbr/faleconosco/*
+include = src/mpdg/govbr/faleconosco/*
