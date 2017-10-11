@@ -13,6 +13,8 @@ install:
 - python bootstrap.py
 - bin/buildout annotate
 - bin/buildout
+- pip install pip flake8 --upgrade
+- flake8
 
 script:
 - bin/code-analysis
