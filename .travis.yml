@@ -15,7 +15,7 @@ install:
 - bin/buildout
 
 script:
-- bin/code-analysis-flake8 
+- bin/code-analysis
 - bin/test
 
 after_success:
