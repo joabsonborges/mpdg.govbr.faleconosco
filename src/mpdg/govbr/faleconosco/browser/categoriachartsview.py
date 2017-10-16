@@ -5,7 +5,6 @@
 import operator
 import random
 import unicodedata 
-import re
 from unidecode import unidecode
 from unicodedata import normalize
 
