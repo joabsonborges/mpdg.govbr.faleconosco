@@ -6,5 +6,4 @@ omit =
     buildout-cache/eggs/*
     eggs/*
     parts/*
-    **/parts/code-analysis/flake8.log
 include = src/mpdg/govbr/faleconosco/*

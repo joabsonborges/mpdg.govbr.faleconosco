@@ -22,4 +22,3 @@ after_success:
 - bin/createcoverage
 - pip install -q coveralls
 - coveralls
-- bin/flake8 --version
