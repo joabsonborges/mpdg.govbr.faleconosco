@@ -57,9 +57,28 @@ setup(
             'plone.testing',
             'plone.app.contenttypes',
             'unittest2',
+            'testfixtures',
+            'zc.buildout [test]',
+            'zope.testing',
             # 'plone.app.robotframework[debug]',
         ],
+        'recommended': [
+            'flake8-blind-except',
+            'flake8-coding',
+            'flake8-commas',
+            'flake8-debugger',
+            'flake8-deprecated',
+            'flake8-isort',
+            'flake8-pep3101',
+            'flake8-plone-api',
+            'flake8-plone-hasattr',
+            'flake8-print',
+            'flake8-quotes',
+            'flake8-string-format',
+            'flake8-todo',
+        ],
     },
+    test_suite='mpdg.govbr.faleconosco.tests.test_docs.test_suite',
     entry_points="""
     [z3c.autoinclude.plugin]
     target = plone
