@@ -1,9 +1,9 @@
 [report]
 omit =
-    /home/*/.buildout/eggs/*
-    /usr/*
-    ./bin/test
-    buildout-cache/eggs/*
-    eggs/*
+    */bin/test
+    */eggs/*
+    */lib/python*
+    */parts/*
+    */usr/*
     parts/*
 include = src/mpdg/govbr/faleconosco/*
