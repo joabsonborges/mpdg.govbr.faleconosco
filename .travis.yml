@@ -18,7 +18,7 @@ env:
     - PLONE_VERSION=4.3 MASTER=true
     - PLONE_VERSION=4.3 PENDING_RELEASE=true
 install:
-  - test "$MASTER" -o "$PLONE_VERSION" = 4.3 && sed -ie '/https:\/\/raw\.githubusercontent\.com\/plonegovbr\/portal\.buildout\/master\/buildout\.d\/versions\.cfg/d' buildout.cfg || true
+  - test "$MASTER" -o "$PLONE_VERSION" = 4.2 && sed -ie '/https:\/\/raw\.githubusercontent\.com\/plonegovbr\/portal\.buildout\/master\/buildout\.d\/versions\.cfg/d' buildout.cfg || true
   - sed -ie "s#test-4.3#test-$PLONE_VERSION#" buildout.cfg
   - python bootstrap.py
   - bin/buildout annotate
