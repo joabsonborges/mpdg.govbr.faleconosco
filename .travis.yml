@@ -9,18 +9,8 @@ cache:
   - eggs
   - parts/node
 
-env:
-  matrix:
-    - PLONE_VERSION=4.2
-    # Nos demais pacotes plonegovbr, como não testo as versões além do Plone
-    # 4.3 (ou seja, por padrão testo sõ a 4.3), não uso a variável
-    # PLONE_VERSION, apenas a MASTER e a PENDING_RELEASE.
-    - PLONE_VERSION=4.3 MASTER=true
-    - PLONE_VERSION=4.3 PENDING_RELEASE=true
+
 install:
-  - test "$MASTER" -o "$PLONE_VERSION" = 4.2 && sed -ie '/https:\/\/raw\.githubusercontent\.com\/plonegovbr\/portal\.buildout\/master\/buildout\.d\/versions\.cfg/d' buildout.cfg || true
-  - sed -ie "s#test-4.3#test-$PLONE_VERSION#" buildout.cfg
-  - python bootstrap.py
   - ./bin/buildout annotate
   - ./bin/buildout
 
