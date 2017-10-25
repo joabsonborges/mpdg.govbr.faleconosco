@@ -6,4 +6,4 @@ omit =
     */parts/*
     */usr/*
     parts/*
-include = src/mpdg/govbr/faleconosco/*
+include = /src/mpdg/govbr/faleconosco/*
