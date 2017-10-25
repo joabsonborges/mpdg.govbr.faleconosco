@@ -11,8 +11,8 @@ cache:
 
 
 install:
-  - ./bin/buildout annotate
-  - ./bin/buildout
+  - bin/buildout annotate
+  - bin/buildout
 
 before_script:
   - export DISPLAY=:99.0
