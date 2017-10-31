@@ -54,7 +54,7 @@ class FormDesarquivarMensagemView(FaleConoscoAdminRequired, FluxoMensagensView ,
     def update(self):
         # Captura o UID da mensagem.
         self.uids = self.request.form.get('form.widgets.uids') or self.request.form.get('uids')
-        
+
         # Retira as opões de edição da página.(Barrinha verde)
         self.request.set('disable_border', True)
         self.request.set('disable_plone.leftcolumn', True)

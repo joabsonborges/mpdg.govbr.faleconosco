@@ -23,16 +23,16 @@ class MensagensArquivadasView(grok.View):
 
         catalog = api.portal.get_tool('portal_catalog')
         brain   = catalog.searchResults(
-            portal_type  = 'FaleConosco', # Pegar pelo Objeto Arquivado = True 
+            portal_type  = 'FaleConosco', # Pegar pelo Objeto Arquivado = True
             arquivado    = True,
             sort_on      = 'modified'
         )
-      
+
 
         mensagens = []
         for item in brain:
             obj = item.getObject()
-            pathPhisical = obj.getPhysicalPath() 
+            pathPhisical = obj.getPhysicalPath()
 
             listarHistorico = catalog.searchResults(
                 portal_type = 'Historico',
@@ -44,18 +44,18 @@ class MensagensArquivadasView(grok.View):
 
             nome = ''
             obs  = ''
-            if listarHistorico: 
+            if listarHistorico:
                 objHistorico = listarHistorico[0].getObject()
                 nome         = objHistorico.getNome()
                 obs          = objHistorico.getObservacao()
 
             mensagens.append(
               {
-                  'UID'  : obj.UID,                  
+                  'UID'  : obj.UID,
                   'assunto': obj.getAssunto(),
                   'nome': nome,
                   'observacao': obs
-              }              
+              }
             )
 
         return mensagens

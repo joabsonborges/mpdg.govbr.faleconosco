@@ -39,17 +39,17 @@ class MensagemAddView(grok.View):
         }
 
     def render(self, **kwargs):
-        """
-        Este metodo tem as funcionalidades de 
-        responder, encaminhar e resgatar.
-        Só quem pode responder de fato é o Adminitrador do fale conosco,
-        os demais usuários pode apenas encaminhar a resposta para o Administrador,
-        para que ele encaminhe de volta para o usuário final (remetente).
-        O encaminhamento é feito sempre pelo usuário logado, seja ele Administrador
-        ou Responsável pela mensagem.
-        O responsável pela mensagem pode encaminhar para outros usuários do Fale Conosco
-        Podendo também resgatar a mensagem, caso tenha cometido algum engano.
-        """
+    """
+    Este metodo tem as funcionalidades de 
+    responder, encaminhar e resgatar.
+    Só quem pode responder de fato é o Adminitrador do fale conosco,
+    os demais usuários pode apenas encaminhar a resposta para o Administrador,
+    para que ele encaminhe de volta para o usuário final (remetente).
+    O encaminhamento é feito sempre pelo usuário logado, seja ele Administrador
+    ou Responsável pela mensagem.
+    O responsável pela mensagem pode encaminhar para outros usuários do Fale Conosco
+    Podendo também resgatar a mensagem, caso tenha cometido algum engano.
+    """
 
         ucatalog       = getToolByName(self.context, 'uid_catalog')
         wtool          = getToolByName(self.context, 'portal_workflow')
@@ -135,7 +135,6 @@ class MensagemAddView(grok.View):
             # apos criar e alterar o estado do workflow,
             # seta o responsavel no fale
             if acao == 'encaminhar':
-                
                 userid      = request.form.get('userid', None)
                 fale.setResponsavel(userid)
                 fale.reindexObject()
@@ -149,7 +148,7 @@ class MensagemAddView(grok.View):
             item.setAssunto(assunto)
             item.setMensagem(mensagem)
             #seta no objeto filho o responsável pelo encaminhamento ou seja quem está logado.
-            item.setResponsavel(userlogged) 
+            item.setResponsavel(userlogged)
             item.reindexObject()
 
             # apos criar a mensagem altera o workflow da
@@ -162,8 +161,7 @@ class MensagemAddView(grok.View):
             mensagem_mail = prepare_email_message(mensagem, html=True)
             simple_send_mail(mensagem_mail, endereco, assunto)
 
-            status_message.add(u"Alteração realizada com sucesso!", 
-                               type=u"info")
+            status_message.add(u"Alteração realizada com sucesso!", type=u"info")
 
             contextURL = self.context.absolute_url() + \
                 '/@@fale-conosco-admin?msg=' + uid

@@ -21,7 +21,6 @@ from mpdg.govbr.faleconosco.browser.utilities import transform_message, get_fale
 
 grok.templatedir('templates')
 
-
 class IFaleConoscoForm(model.Schema):
     nome     = schema.TextLine(title=u"Nome", required=True , max_length=50)
     email    = schema.TextLine(title=u"E-mail", required=True)
@@ -62,7 +61,7 @@ class FaleConoscoForm(form.SchemaForm):
         super(FaleConoscoForm, self).updateActions()
 
     # def action(self):
-    #     return api.portal.get().absolute_url() + "/@@confirmacao" 
+    # return api.portal.get().absolute_url() + "/@@confirmacao"
 
     def faq(self):
         portal = api.portal.get()
@@ -71,7 +70,7 @@ class FaleConoscoForm(form.SchemaForm):
         faq = getattr(portal, 'faq', None)
         if faq:
             brain = catalog(
-                portal_type='Document', 
+                portal_type='Document',
                 path='/'.join(faq.getPhysicalPath()),
                 review_state='published'
             )
@@ -85,7 +84,6 @@ class FaleConoscoForm(form.SchemaForm):
 
         return faq_list
 
-    
     @button.buttonAndHandler(u'Enviar')
     def handleApply(self, action):
         data, errors = self.extractData()
@@ -124,7 +122,6 @@ class FaleConoscoForm(form.SchemaForm):
         dados_fale['conteudo'] = conteudo
         fale.append(dados_fale)
         annotation[KEY_CONFIRMA] = fale
-        
         url_confirm = portal.absolute_url() + '/fale_confirma?h=' + hash
         endereco = email
         texto = self.get_message(

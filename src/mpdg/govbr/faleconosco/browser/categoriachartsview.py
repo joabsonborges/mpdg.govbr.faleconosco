@@ -4,7 +4,7 @@
 # from __future__ import unicode_literals
 import operator
 import random
-import unicodedata 
+import unicodedata
 from unidecode import unidecode
 from unicodedata import normalize
 
@@ -24,7 +24,7 @@ class CategoriaChartsView(grok.View):
     grok.name('categoria-charts-view')
     grok.require('zope2.View')
     grok.context(ISiteRoot)
-    
+
 
     def update(self):
         qtd_get = int(self.request.form.get('qtd', 10))
@@ -95,7 +95,6 @@ class CategoriaChartsView(grok.View):
         tags = self._filter_tags()
         result = []
         for tag, v in tags:
-                
                 result.append(tag)
         return result
 
