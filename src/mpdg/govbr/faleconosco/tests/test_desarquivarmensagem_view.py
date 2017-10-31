@@ -1,7 +1,7 @@
 #-*- coding: utf-8 -*-
 import unittest
 from mpdg.govbr.faleconosco.testing import MPDG_GOVBR_FALECONOSCO_INTEGRATION_TESTING
-from AccessControl import Unauthorized
+# from AccessControl import Unauthorized
 from mpdg.govbr.faleconosco.browser.desarquivarmensagem import DesarquivarMensagemView
 from plone import api
 
@@ -16,7 +16,7 @@ class DesarquivarMensagemViewTest(unittest.TestCase):
         self.view = DesarquivarMensagemView(self.portal, self.request)
         group = api.group.create(groupname='adm-fale-conosco')
 
-       
+
     def test_view_desarquivar_mensagem(self):
         view = self.portal.restrictedTraverse('@@desarquivar-mensagem')
         self.assertTrue(view)

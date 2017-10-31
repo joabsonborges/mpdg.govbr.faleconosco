@@ -9,18 +9,13 @@ from plone.app.testing import setRoles
 from mpdg.govbr.faleconosco.browser.faleconoscoform import IFaleConoscoForm, FaleConoscoForm
 import unittest2 as unittest
 from email import message_from_string
-from plone.app.testing import TEST_USER_NAME, TEST_USER_ID
-from plone.app.testing import login, logout
+from plone.app.testing import logout
 from plone.app.testing import setRoles
 from plone.testing.z2 import Browser
 from Products.Five.testbrowser import Browser
-from Acquisition import aq_base
 from zope.component import getSiteManager
-from Products.CMFPlone.tests.utils import MockMailHost
-from Products.MailHost.interfaces import IMailHost
 from AccessControl import Unauthorized
 from mpdg.govbr.faleconosco.testing import MPDG_GOVBR_FALECONOSCO_INTEGRATION_TESTING
-import transaction
 
 
 class FaleConoscoForms(unittest.TestCase):

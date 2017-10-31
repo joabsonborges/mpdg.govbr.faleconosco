@@ -29,11 +29,7 @@ class InserirFaqView(grok.View):
                 texto_prontos = ''
 
             result.append({
-                'titulo' : texto.title, 
-                'texto'  : texto_prontos
-             })
+                'titulo':texto.title,
+                'texto':texto_prontos
+            })
         return result
-
-
-
-    

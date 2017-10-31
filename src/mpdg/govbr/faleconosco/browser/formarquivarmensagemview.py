@@ -9,7 +9,6 @@ from z3c.form import button
 from plone.autoform import directives
 
 from mpdg.govbr.faleconosco.browser.utilities import FaleConoscoAdminRequired
-from DateTime.DateTime import DateTime
 from datetime import datetime
 from plone.i18n.normalizer import idnormalizer
 from Products.CMFCore.utils import getToolByName
@@ -18,22 +17,27 @@ from mpdg.govbr.faleconosco.browser.utilities import FluxoMensagensView
 
 grok.templatedir('templates')
 
-#Criando a interface do formulário
+# Criando a interface do formulário
 class IFormArquivarMensagemView(form.Schema):
     # Criando os campos do formulário
+
+
     directives.mode(uids='hidden')
-    uids       = schema.TextLine(title=u"UIDS", required=True)
-    observacao = schema.Text(title=u"Motivo:", required=True)
+    uids=schema.TextLine(title=u"UIDS", required=True)
+    observacao=schema.Text(title=u"Motivo:", required=True)
 
 # Renderizando o formulário
+
+
 @form.default_value(field=IFormArquivarMensagemView['uids'])
 def default_uids(data):
     return data.request.get('uids')
 
-#Fim
-#Criando a view do formulário
-class FormArquivarMensagemView(FaleConoscoAdminRequired, FluxoMensagensView,form.SchemaForm):
-    #Setando o nome da URL
+
+# Fim
+# Criando a view do formulário
+class FormArquivarMensagemView(FaleConoscoAdminRequired, FluxoMensagensView, form.SchemaForm):
+    # Setando o nome da URL
     grok.name('justificar-arquivamento-de-mensagem')
     grok.require('zope2.View')
     grok.context(ISiteRoot)
@@ -41,15 +45,15 @@ class FormArquivarMensagemView(FaleConoscoAdminRequired, FluxoMensagensView,form
     schema = IFormArquivarMensagemView
     ignoreContext = True
 
-    label = u"Arquivar Mensagem"
+    label=u"Arquivar Mensagem"
 
     def assunto(self):
         # fazer busca e retornar assunto da msg
-        catalog = api.portal.get_tool(name='portal_catalog')
-        brain   = catalog.searchResults(UID=self.uids)
+        catalog=api.portal.get_tool(name='portal_catalog')
+        brain=catalog.searchResults(UID=self.uids)
         if brain:
-            form     = brain[0].getObject()
-            mensagem = form.getAssunto()
+            form=brain[0].getObject()
+            mensagem=form.getAssunto()
             return mensagem
 
     def update(self):
@@ -65,7 +69,7 @@ class FormArquivarMensagemView(FaleConoscoAdminRequired, FluxoMensagensView,form
         return super(FormArquivarMensagemView, self).update()
 
     def updateActions(self):
-        self.request.set('disable_border',True)
+        self.request.set('disable_border', True)
         return super(FormArquivarMensagemView, self).updateActions()
 
     @button.buttonAndHandler(u'Enviar')
@@ -77,10 +81,10 @@ class FormArquivarMensagemView(FaleConoscoAdminRequired, FluxoMensagensView,form
         if errors:
             self.status = self.formErrorsMessage
 
-        msg        = data['observacao']
-        nome       = api.user.get_current().id # Pega o id do usuário logado.
-        catalog    = api.portal.get_tool(name='portal_catalog')
-        brain      = catalog.searchResults(UID=self.uids)
+        msg=data['observacao']
+        nome=api.user.get_current().id # Pega o id do usuário logado.
+        catalog= pi.portal.get_tool(name='portal_catalog')
+        brain=catalog.searchResults(UID=self.uids)
 
         if brain:
             fale = brain[0].getObject()

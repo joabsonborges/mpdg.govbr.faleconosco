@@ -9,18 +9,13 @@ class IMpdgGovbrFaleconoscoLayer(IDefaultBrowserLayer):
     """Marker interface that defines a browser layer."""
 
 class IFaleConosco(Interface):
-    """ interface para o conteudo FaleConosco
-
-    """
+    """ interface para o conteudo FaleConosco"""
 
 class IHistorico(Interface):
-    """ interface para o conteudo Historico
-    """
+    """ interface para o conteudo Historico"""
 
 class IMensagem(Interface):
-	""" interface para o conteudo Mensagem 
-	"""
+    """ interface para o conteudo Mensagem """
 
 class IAssunto(Interface):
-    """ interface para o conteudo Assunto
-    """
+    """ interface para o conteudo Assunto"""

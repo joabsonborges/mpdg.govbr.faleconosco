@@ -50,9 +50,9 @@ class FaleCategorizar(FaleConoscoAdminRequired, grok.View):
         messages.add(mensagem, type='info')
         return
 
-            # 2. a partir desse objeto, definir as categorias recebidas na variavel 'categorias'
-            # setSubject(self.categorias) <- no objeto que a gente pegou acima
+    # 2. a partir desse objeto, definir as categorias recebidas na variavel 'categorias'
+    # setSubject(self.categorias) <- no objeto que a gente pegou acima
 
-            # 3. Informar uma mensagem dizendo ao usuario que as categorias foram atualizadas
+    # 3. Informar uma mensagem dizendo ao usuario que as categorias foram atualizadas
 
-            # 4. redirecionar o usuario para o painel de admin do fale conosco
+    # 4. redirecionar o usuario para o painel de admin do fale conosco

@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
-
 from five import grok
 from plone import api
-
 from Products.CMFCore.interfaces import ISiteRoot
 
 grok.templatedir('templates')
